@@ -19,12 +19,13 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock   
-                   Text="History"   
+                   x:Name="history"   
                    FontSize="30"   
                    VerticalAlignment="Top"   
                    HorizontalAlignment="Right"   
                    Grid.ColumnSpan="4"></TextBlock>
-            <TextBlock Name="txtResult"   
+            <TextBlock x:Name="txtResult"
+                       x:FieldModifier="public"
                    Text="0"   
                    FontSize="60"
                    FontWeight="Bold"
@@ -56,23 +57,23 @@
             <Button FontSize="30" Grid.Row="2" Grid.Column="2">&lt;</Button>
             <Button FontSize="30" Grid.Row="2" Grid.Column="3">/</Button>
 
-            <Button FontSize="30" Grid.Row="3" Grid.Column="0">7</Button>
-            <Button FontSize="30" Grid.Row="3" Grid.Column="1">8</Button>
-            <Button FontSize="30" Grid.Row="3" Grid.Column="2">9</Button>
+            <Button x:Name="button7" FontSize="30" Grid.Row="3" Grid.Column="0">7</Button>
+            <Button x:Name="button8" FontSize="30" Grid.Row="3" Grid.Column="1">8</Button>
+            <Button x:Name="button9" FontSize="30" Grid.Row="3" Grid.Column="2">9</Button>
             <Button FontSize="30" Grid.Row="3" Grid.Column="3">*</Button>
 
-            <Button FontSize="30" Grid.Row="4" Grid.Column="0" >4</Button>
-            <Button FontSize="30" Grid.Row="4" Grid.Column="1" >5</Button>
-            <Button FontSize="30" Grid.Row="4" Grid.Column="2" >6</Button>
+            <Button x:Name="button4" FontSize="30" Grid.Row="4" Grid.Column="0" >4</Button>
+            <Button x:Name="button5" FontSize="30" Grid.Row="4" Grid.Column="1" >5</Button>
+            <Button x:Name="button6" FontSize="30" Grid.Row="4" Grid.Column="2" >6</Button>
             <Button FontSize="30" Grid.Row="4" Grid.Column="3" >-</Button>
 
-            <Button FontSize="30" Grid.Row="5" Grid.Column="0" >1</Button>
-            <Button FontSize="30" Grid.Row="5" Grid.Column="1" >2</Button>
-            <Button FontSize="30" Grid.Row="5" Grid.Column="2" >3</Button>
+            <Button x:Name="button1" FontSize="30" Grid.Row="5" Grid.Column="0" >1</Button>
+            <Button x:Name="button2" FontSize="30" Grid.Row="5" Grid.Column="1" >2</Button>
+            <Button x:Name="button3" FontSize="30" Grid.Row="5" Grid.Column="2" >3</Button>
             <Button FontSize="30" Grid.Row="5" Grid.Column="3" >+</Button>
 
             <Button FontSize="30" Grid.Row="6" Grid.Column="0">.</Button>
-            <Button FontSize="30" Grid.Row="6" Grid.Column="1">0</Button>
+            <Button x:Name="button0" FontSize="30" Grid.Row="6" Grid.Column="1">0</Button>
             <Button FontSize="30" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">=</Button>
         </Grid>
     </Grid>
