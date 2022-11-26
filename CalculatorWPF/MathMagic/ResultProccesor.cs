@@ -151,10 +151,7 @@ namespace CalculatorWPF.MathMagic
                         $"{SecondNumber} = {Result}|";
                     // Critically important
                     FirstNumber = Result;
-                    if (FirstNumber == "Error")
-                    {
-                        BackToNormalState();
-                    }
+                    BackToNormalState();
                     break;
                 default:
                     Operation = Operation.Empty;
@@ -174,57 +171,18 @@ namespace CalculatorWPF.MathMagic
 
         private string FindResult()
         {
-            bool isNumeric1 = int.TryParse(FirstNumber, out int n1);
-            bool isNumeric2 = int.TryParse(SecondNumber, out int n2);
-
-            if (isNumeric1 && isNumeric2)
-            {
-                return PerformOperationInt(n1, n2);
-            }
-
             bool isDouble1 = double.TryParse(FirstNumber, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out double d1);
             bool isDouble2 = double.TryParse(SecondNumber, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out double d2);
-           
+
             if (isDouble1 && isDouble2)
             {
                 return PerformOperationDouble(d1, d2);
             }
+            
             MainWindow.txtResult.FontSize = 15;
             return "Error";
         }
 
-        private string PerformOperationInt(int num1, int num2)
-        {
-            int res = 0;
-            if (Operation == Operation.Divide)
-            {
-                if (num2 != 0)
-                {
-                    res = (num1 / num2);
-                }
-            }
-            if (Operation == Operation.Mult)
-            {
-                res = (num1 * num2);
-            }
-            if (Operation == Operation.Substract)
-            {
-                res = (num1 - num2);
-            }
-            if (Operation == Operation.Sum)
-            {
-                res = (num1 + num2);
-            }
-            if (res == 0)
-            {
-                MainWindow.txtResult.FontSize = 15;
-                return "Error";
-            }
-
-            return res.ToString();
-        }
-
-        // poka ne pridumal kak eto izmenit
         private string PerformOperationDouble(double num1, double num2)
         {
             double res = 0.0;
