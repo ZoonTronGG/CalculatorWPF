@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:CalculatorWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" MinHeight="500" Width="800" Style="{DynamicResource ResourceKey=WindowStyle}">
     <Grid>
         <Grid>
             <Grid.RowDefinitions>
@@ -19,13 +19,15 @@
                 <ColumnDefinition></ColumnDefinition>
             </Grid.ColumnDefinitions>
             <TextBlock   
-                   x:Name="history"   
+                   x:Name="history"
+                   Style="{DynamicResource ActivePanel}"
                    FontSize="30"   
                    VerticalAlignment="Top"   
                    HorizontalAlignment="Right"   
                    Grid.ColumnSpan="4"></TextBlock>
             <TextBlock x:Name="txtResult"
                        x:FieldModifier="public"
+                       Style="{DynamicResource ActivePanel}"
                    Text="0"   
                    FontSize="60"
                    FontWeight="Bold"
@@ -43,6 +45,7 @@
                 <RowDefinition Height="80*"></RowDefinition>
                 <RowDefinition Height="80*"></RowDefinition>
                 <RowDefinition Height="80*"></RowDefinition>
+                <RowDefinition Height="80*"></RowDefinition>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition></ColumnDefinition>
@@ -52,29 +55,31 @@
             </Grid.ColumnDefinitions>
 
 
-            <Button FontSize="30" Grid.Row="2" Grid.Column="0">CE</Button>
-            <Button FontSize="30" Grid.Row="2" Grid.Column="1">C</Button>
-            <Button FontSize="30" Grid.Row="2" Grid.Column="2">&lt;</Button>
-            <Button FontSize="30" Grid.Row="2" Grid.Column="3">/</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="2" Grid.Column="0">CE</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="2" Grid.Column="1">C</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="2" Grid.Column="2">&lt;</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="2" Grid.Column="3">/</Button>
 
-            <Button x:Name="button7" FontSize="30" Grid.Row="3" Grid.Column="0">7</Button>
-            <Button x:Name="button8" FontSize="30" Grid.Row="3" Grid.Column="1">8</Button>
-            <Button x:Name="button9" FontSize="30" Grid.Row="3" Grid.Column="2">9</Button>
-            <Button FontSize="30" Grid.Row="3" Grid.Column="3">*</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button7" FontSize="30" Grid.Row="3" Grid.Column="0">7</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button8" FontSize="30" Grid.Row="3" Grid.Column="1">8</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button9" FontSize="30" Grid.Row="3" Grid.Column="2">9</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="3" Grid.Column="3">*</Button>
 
-            <Button x:Name="button4" FontSize="30" Grid.Row="4" Grid.Column="0" >4</Button>
-            <Button x:Name="button5" FontSize="30" Grid.Row="4" Grid.Column="1" >5</Button>
-            <Button x:Name="button6" FontSize="30" Grid.Row="4" Grid.Column="2" >6</Button>
-            <Button FontSize="30" Grid.Row="4" Grid.Column="3" >-</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button4" FontSize="30" Grid.Row="4" Grid.Column="0" >4</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button5" FontSize="30" Grid.Row="4" Grid.Column="1" >5</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button6" FontSize="30" Grid.Row="4" Grid.Column="2" >6</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="4" Grid.Column="3" >-</Button>
 
-            <Button x:Name="button1" FontSize="30" Grid.Row="5" Grid.Column="0" >1</Button>
-            <Button x:Name="button2" FontSize="30" Grid.Row="5" Grid.Column="1" >2</Button>
-            <Button x:Name="button3" FontSize="30" Grid.Row="5" Grid.Column="2" >3</Button>
-            <Button FontSize="30" Grid.Row="5" Grid.Column="3" >+</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button1" FontSize="30" Grid.Row="5" Grid.Column="0" >1</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button2" FontSize="30" Grid.Row="5" Grid.Column="1" >2</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button3" FontSize="30" Grid.Row="5" Grid.Column="2" >3</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="5" Grid.Column="3" >+</Button>
 
-            <Button FontSize="30" Grid.Row="6" Grid.Column="0">.</Button>
-            <Button x:Name="button0" FontSize="30" Grid.Row="6" Grid.Column="1">0</Button>
-            <Button FontSize="30" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">=</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="6" Grid.Column="0">.</Button>
+            <Button Style="{DynamicResource ButtonStyle}" x:Name="button0" FontSize="30" Grid.Row="6" Grid.Column="1">0</Button>
+            <Button Style="{DynamicResource ButtonStyle}" FontSize="30" Grid.Row="6" Grid.Column="2" Grid.ColumnSpan="2">=</Button>
+            <Button IsEnabled="False" x:Name="lightMode" Click="lightMode_Click" Grid.Row="7" Grid.ColumnSpan="2" FontSize="30" Background="LightGoldenrodYellow">Light Mode</Button>
+            <Button x:Name="darkMode" Click="darkMode_Click"  Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2" FontSize="30" Background="DarkKhaki">Dark Mode</Button>
         </Grid>
     </Grid>
 </Window>

@@ -66,5 +66,31 @@ namespace CalculatorWPF
             }
         }
 
+        private void lightMode_Click(object sender, RoutedEventArgs e)
+        {
+            // определяем путь к файлу ресурсов
+            var uri = new Uri("light.xaml", UriKind.Relative);
+            // загружаем словарь ресурсов
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            // очищаем коллекцию ресурсов приложения
+            Application.Current.Resources.Clear();
+            // добавляем загруженный словарь ресурсов
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            darkMode.IsEnabled = true;
+            lightMode.IsEnabled = false;
+        }
+
+        private void darkMode_Click(object sender, RoutedEventArgs e)
+        {
+            var uri = new Uri("dark.xaml", UriKind.Relative);
+            // загружаем словарь ресурсов
+            ResourceDictionary resourceDict = Application.LoadComponent(uri) as ResourceDictionary;
+            // очищаем коллекцию ресурсов приложения
+            Application.Current.Resources.Clear();
+            // добавляем загруженный словарь ресурсов
+            Application.Current.Resources.MergedDictionaries.Add(resourceDict);
+            darkMode.IsEnabled = false;
+            lightMode.IsEnabled = true;
+        }
     }
 }
